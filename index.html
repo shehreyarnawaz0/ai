@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ur" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Mid Term - Top 100 MCQs Quiz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="theme-light">
+
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a8 8 0 0 0-8 8c0 3.3 2 6.2 5 7.4V20a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2.6c3-1.2 5-4.1 5-7.4a8 8 0 0 0-8-8z"></path>
+            <path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Artificial Intelligence - Mid Term</h1>
+          <span class="subtitle">Top 100 MCQs Practice Test (Weeks 1 - 7)</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Audio Sound Toggle -->
+        <button id="soundToggleBtn" class="icon-btn" title="Sound Effects On/Off" aria-label="Toggle Sound">
+          <svg id="soundOnIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg id="soundOffIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" class="icon-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">
+          <svg id="moonIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sunIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Navigator Grid Button -->
+        <button id="openNavBtn" class="btn btn-outline" title="Open Question Grid">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"></rect>
+            <rect x="14" y="3" width="7" height="7"></rect>
+            <rect x="14" y="14" width="7" height="7"></rect>
+            <rect x="3" y="14" width="7" height="7"></rect>
+          </svg>
+          <span>1-100 Grid</span>
+        </button>
+
+        <!-- Reset All -->
+        <button id="resetAllBtn" class="btn btn-secondary" title="Reset All Answers">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          <span>Reset</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Live Score Dashboard -->
+  <section class="dashboard-bar">
+    <div class="dashboard-container">
+      <div class="score-cards">
+        <div class="stat-pill attempted">
+          <span class="stat-label">Attempted:</span>
+          <span id="statAttempted" class="stat-val">0 / 100</span>
+        </div>
+        <div class="stat-pill correct">
+          <span class="stat-indicator correct-dot"></span>
+          <span class="stat-label">Sahi (Correct):</span>
+          <span id="statCorrect" class="stat-val">0</span>
+        </div>
+        <div class="stat-pill wrong">
+          <span class="stat-indicator wrong-dot"></span>
+          <span class="stat-label">Ghalat (Wrong):</span>
+          <span id="statWrong" class="stat-val">0</span>
+        </div>
+        <div class="stat-pill accuracy">
+          <span class="stat-label">Accuracy:</span>
+          <span id="statAccuracy" class="stat-val">0%</span>
+        </div>
+      </div>
+
+      <div class="progress-section">
+        <div class="progress-bar-wrap">
+          <div id="quizProgressBar" class="progress-bar-fill" style="width: 0%"></div>
+        </div>
+        <span id="progressText" class="progress-text">0% Complete</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Layout -->
+  <div class="app-layout">
+    <!-- Filter and Search Bar -->
+    <section class="controls-section">
+      <div class="controls-top">
+        <!-- Week Filter Tabs -->
+        <div class="week-tabs-scroll">
+          <div class="week-tabs" id="weekTabsContainer">
+            <button class="week-tab active" data-week="all">Tamam (All 100)</button>
+            <button class="week-tab" data-week="1">Week 1 (Intro)</button>
+            <button class="week-tab" data-week="2">Week 2 (Agents)</button>
+            <button class="week-tab" data-week="3">Week 3 (Uninformed)</button>
+            <button class="week-tab" data-week="4">Week 4 (Informed/A*)</button>
+            <button class="week-tab" data-week="5">Week 5 (Genetic)</button>
+            <button class="week-tab" data-week="6">Week 6 (Minimax)</button>
+            <button class="week-tab" data-week="7">Week 7 (NLP)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-search-row">
+        <div class="search-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="searchInput" placeholder="Search MCQs by question or keywords (e.g. minimax, BFS, ELIZA)...">
+          <button id="clearSearchBtn" class="clear-search hidden">&times;</button>
+        </div>
+
+        <div class="quick-filters">
+          <select id="statusFilter" class="select-dropdown">
+            <option value="all">Tamam Sawalat (All Questions)</option>
+            <option value="unanswered">Baqi Sawalat (Unattempted Only)</option>
+            <option value="wrong">Ghalat Sawalat (Mistakes to Review)</option>
+            <option value="correct">Sahi Sawalat (Correct Only)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Questions Feed -->
+    <main class="quiz-feed-container">
+      <div id="feedNotice" class="feed-notice">
+        <span>💡 <strong>Tariqa:</strong> Kisi bhi option pr click krain — system foran bataye ga k jawab <strong>Sahi</strong> hai ya <strong>Ghalat</strong>, aur sath hi <strong>Sahi Jawab</strong> highlight kr dy ga!</span>
+      </div>
+
+      <div id="questionsContainer" class="questions-container">
+        <!-- Rendered by JavaScript -->
+      </div>
+
+      <div id="noResults" class="no-results hidden">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <h3>Koi Sawal Nahi Mila</h3>
+        <p>Aapki search ya filter k mutabiq koi question nahi hai.</p>
+        <button id="resetFilterBtn" class="btn btn-secondary">Filter Reset Krain</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Question Jump Navigation Drawer (1 to 100 Grid) -->
+  <div id="navDrawerOverlay" class="drawer-overlay hidden"></div>
+  <aside id="navDrawer" class="nav-drawer hidden">
+    <div class="drawer-header">
+      <div>
+        <h2>Question Navigator (1 - 100)</h2>
+        <p>Kisi bhi number pr click kr k seedha us sawal pr pohnchain</p>
+      </div>
+      <button id="closeNavBtn" class="close-btn" aria-label="Close Navigator">&times;</button>
+    </div>
+
+    <div class="drawer-legend">
+      <span class="legend-item"><span class="legend-dot unanswered-bg"></span> Unanswered (<span id="legendUnanswered">100</span>)</span>
+      <span class="legend-item"><span class="legend-dot correct-bg"></span> Sahi (<span id="legendCorrect">0</span>)</span>
+      <span class="legend-item"><span class="legend-dot wrong-bg"></span> Ghalat (<span id="legendWrong">0</span>)</span>
+    </div>
+
+    <div id="gridContainer" class="nav-grid">
+      <!-- 100 Buttons generated via JS -->
+    </div>
+  </aside>
+
+  <!-- Floating Scroll To Top -->
+  <button id="scrollTopBtn" class="floating-btn scroll-top hidden" title="Scroll To Top" aria-label="Scroll to Top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"></path>
+    </svg>
+  </button>
+
+  <!-- App Script with all 100 MCQs Data & Interactive Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
